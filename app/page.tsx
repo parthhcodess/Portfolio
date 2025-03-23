@@ -3,7 +3,10 @@ import { BackgroundBeams } from "@/components/background-beams";
 import Dither from "@/components/Dither";
 import Lanyard from "@/components/Lanyard";
 import Squares from "@/components/Square";
+import { TextGenerateEffect } from "@/components/text-generate-effect";
 import React from "react";
+
+const words = `Hey, I am Parth`;
 
 export function BackgroundBeamsDemo() {
   return (
@@ -56,8 +59,27 @@ export function Squarebg() {
   )
 }
 
+export function TextGenerateEffectDemo() {
+  return <TextGenerateEffect words={words} />;
+}
+
 export default function Page() {
-  return (
-    <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+  return ( 
+    <div className="relative min-h-screen">
+      {/* Background layer */}
+      <div className="fixed inset-0 z-0">
+        <BackgroundBeamsDemo />
+      </div>
+      
+      {/* Content layer */}
+      <div className="relative z-10">
+        <div className="h-screen flex justify-center items-center absolute inset-0">
+          <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+        </div>
+        <div className="flex justify-center font-bytesized">
+          <TextGenerateEffectDemo />
+        </div>
+      </div>
+    </div>
   )
 }
