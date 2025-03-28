@@ -23,7 +23,7 @@ export function Nav() {
             </div>
           </MenuItem>
           <MenuItem setActive={setActive} active={active} item="Projects">
-            <div className="  text-sm grid grid-cols-2 gap-10 p-4">
+            <div className="text-sm grid grid-cols-2 gap-10 p-4">
               <ProductItem
                 title="lightening.new"
                 href="https://github.com/parthhcodess/lightening.new"

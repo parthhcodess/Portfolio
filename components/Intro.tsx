@@ -26,7 +26,7 @@ export function Intro() {
     },
   ];
   return (
-    <div className="flex flex-col items-center justify-center h-[4rem]">
+    <div className="flex flex-col items-center md:items-start justify-center h-[4rem] w-full">
       <TypewriterEffectSmooth words={words} />
     </div>
   );
