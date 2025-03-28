@@ -5,29 +5,33 @@ import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button
 export function Intro() {
   const words = [
     {
-      text: "Build",
+      text: "I",
+      className: "text-3xl",
     },
     {
-      text: "awesome",
+      text: "AM",
+      className: "text-3xl",
     },
     {
-      text: "apps",
+      text: "A",
+      className: "text-3xl",
     },
     {
-      text: "with",
+      text: "FULLSTACK",
+      className: "text-blue-500 dark:text-blue-500 text-3xl",
     },
     {
-      text: "Aceternity.",
-      className: "text-blue-500 dark:text-blue-500",
+      text: "DEVELOPER.",
+      className: "text-blue-500 dark:text-blue-500 text-3xl",
     },
   ];
   return (
-    <div className="flex flex-col items-center justify-center h-[40rem]  ">
+    <div className="flex flex-col items-center justify-center h-[4rem]">
       <TypewriterEffectSmooth words={words} />
     </div>
   );
 }
 
-export function InteractiveHoverButtonDemo() {
+export function ResumeButton() {
   return <InteractiveHoverButton>Resume</InteractiveHoverButton>;
 }

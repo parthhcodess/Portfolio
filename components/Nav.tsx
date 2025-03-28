@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from "@/lib/util";
 import { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/Navbar";
@@ -23,10 +25,10 @@ export function Nav() {
           <MenuItem setActive={setActive} active={active} item="Projects">
             <div className="  text-sm grid grid-cols-2 gap-10 p-4">
               <ProductItem
-                title="Algochurn"
-                href="https://algochurn.com"
+                title="lightening.new"
+                href="https://github.com/parthhcodess/lightening.new"
                 src="https://assets.aceternity.com/demos/algochurn.webp"
-                description="Prepare for tech interviews like never before."
+                description="Now let AI create Websites for you."
               />
               <ProductItem
                 title="Tailwind Master Kit"

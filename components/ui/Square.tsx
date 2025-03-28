@@ -169,3 +169,17 @@ const Squares: React.FC<SquaresProps> = ({
 };
 
 export default Squares;
+
+
+// Import it to the main file
+// export function Squarebg() {
+//   return (
+//     <Squares 
+//       speed={0.5} 
+//       squareSize={40}
+//       direction='up' // up, down, left, right, diagonal
+//       borderColor='#fff'
+//       hoverFillColor='#222'
+//     />
+//   )
+// }

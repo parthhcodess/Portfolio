@@ -24,9 +24,7 @@ const slugs = [
   "netlify",
   "solidity",
   "cpp",
-  "java",
   "python",
-  "tensorflow",
   "numpy",
   "pandas"
 ];

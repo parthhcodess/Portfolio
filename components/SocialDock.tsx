@@ -55,8 +55,8 @@ const Icons = {
 
 const DATA = {
   navbar: [
-    { href: "https://dev.to/parthhcodess", icon: HomeIcon, label: "Home" },
-    { href: "#", icon: PencilIcon, label: "Blog" },
+    { href: "#", icon: HomeIcon, label: "Home" },
+    { href: "https://dev.to/parthhcodess", icon: PencilIcon, label: "Blog" },
   ],
   contact: {
     social: {
