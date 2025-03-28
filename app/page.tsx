@@ -4,6 +4,7 @@ import React from "react";
 import { SkillCloud } from "@/components/SkillsCloud";
 import { Intro, ResumeButton } from "@/components/Intro";
 import { SocialDock } from "@/components/SocialDock";
+import { Skills } from "@/components/Skills";
 
 // export function TextGenerateEffectDemo() {
 //   return <TextGenerateEffect words={words} />;
@@ -19,14 +20,14 @@ export default function Page() {
         <TextGenerateEffectDemo />
       </div> */}
       <div className="flex justify-center items-center px-8 py-16">
-        <div className="flex flex-col md:flex-row items-center gap-8">
+        <div className="container max-w-6xl flex flex-col md:flex-row items-center gap-8">
           <div className="text-center md:text-left">
             <div className="text-xl font-light text-indigo-300">HEYAA FOLKS, I AM</div>
             <div className="text-6xl font-bold font-serif mt-2 text-white">PARTH</div>
             <div><Intro /></div>
             <div><ResumeButton /></div>
           </div>
-          <div className="w-full md:w-auto fixed md:static">
+          <div className="w-full md:w-auto md:ml-auto">
             <SkillCloud />
           </div>
         </div>
@@ -53,6 +54,7 @@ export default function Page() {
       <div className="flex justify-center items-center ">
         <div className="container max-w-4xl mx-auto px-8">
           <div className="text-3xl font-extrabold text-white text-center mb-6">Tools I Have Used</div>
+          <Skills />
         </div>
       </div>
       
