@@ -5,6 +5,7 @@ import { SkillCloud } from "@/components/SkillsCloud";
 import { Intro, ResumeButton } from "@/components/Intro";
 import { SocialDock } from "@/components/SocialDock";
 import { Skills } from "@/components/Skills";
+import { ProjectCards } from "@/components/ProjectCards";
 
 export default function Page() {
   return ( 
@@ -48,6 +49,17 @@ export default function Page() {
         </div>
       </div>
       
+      {/* Spacer - responsive */}
+      <div className="py-16 sm:py-24 md:py-36"></div>
+
+      {/* Projects Section - responsive */}
+      <div className="flex justify-center items-center">
+        <div className="container max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+          <div className="text-2xl sm:text-3xl font-extrabold text-white text-center mb-4 sm:mb-6">Projects</div>
+            {/* Add your project details here */}
+            <ProjectCards />
+        </div>
+      </div>
       {/* Additional bottom spacing for SocialDock - responsive */}
       <div className="py-10 sm:py-16 md:py-20"></div>
       
