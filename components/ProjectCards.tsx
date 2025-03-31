@@ -75,7 +75,7 @@ export function ProjectCard2() {
 
 export function ProjectCard3() {
   // Define links
-  const websiteLink = "";
+  const websiteLink = "https://github.com/parthhcodess/parthhcodess.github.io";
   
   // Handle card click - open the website link by default
   const handleCardClick = () => {
