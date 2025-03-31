@@ -69,6 +69,12 @@ export default function Page() {
         </div>
       </div>
 
+      <div className="py-16 sm:py-28 md:py-40"></div>
+      
+      <div id="projects" className="flex justify-center items-center">
+          <div className="text-xs sm:text-sm font-extrabold text-white text-center mb-4 sm:mb-6 ">Made With 🩷 by Parth </div>
+      </div>  
+
       {/* Additional bottom spacing for SocialDock - responsive */}
       <div className="py-10 sm:py-16 md:py-20"></div>
       
