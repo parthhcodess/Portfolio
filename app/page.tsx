@@ -1,17 +1,10 @@
 "use client";
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import React from "react";
 import { SkillCloud } from "@/components/SkillsCloud";
 import { Intro, ResumeButton } from "@/components/Intro";
 import { SocialDock } from "@/components/SocialDock";
 import { Skills } from "@/components/Skills";
 import { ProjectCard1, ProjectCard2, ProjectCard3 } from "@/components/ProjectCards";
-import { motion } from "framer-motion";
-import {
-  slideInFromLeft,
-  slideInFromRight,
-  slideInFromTop,
-} from "@/utils/motion";
 
 export default function Page() {
   return ( 

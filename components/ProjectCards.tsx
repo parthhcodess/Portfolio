@@ -1,5 +1,4 @@
 import TiltedCard from "./ui/TiltedCard";
-import { useState } from "react";
 
 export function ProjectCard1() {
   // Define links
