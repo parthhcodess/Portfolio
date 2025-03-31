@@ -1,74 +1,164 @@
 "use client"
 
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { cn } from "@/lib/util";
-import { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/Navbar";
-
 
 export function Nav() {
+  const [activeSection, setActiveSection] = useState('');
+  const [scrolled, setScrolled] = useState(false);
 
-  function Navbar({ className }: { className?: string }) {
-    const [active, setActive] = useState<string | null>(null);
-    return (
-      <div
-        className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
-      >
-        <Menu setActive={setActive}>
-          <MenuItem setActive={setActive} active={active} item="About Me">
-            <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/web-dev">Web Development</HoveredLink>
-              <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-              <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-              <HoveredLink href="/branding">Branding</HoveredLink>
-            </div>
-          </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Projects">
-            <div className="text-sm grid grid-cols-2 gap-10 p-4">
-              <ProductItem
-                title="lightening.new"
-                href="https://github.com/parthhcodess/lightening.new"
-                src="https://assets.aceternity.com/demos/algochurn.webp"
-                description="Now let AI create Websites for you."
-              />
-              <ProductItem
-                title="Tailwind Master Kit"
-                href="https://tailwindmasterkit.com"
-                src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-                description="Production ready Tailwind css components for your next project"
-              />
-              <ProductItem
-                title="Moonbeam"
-                href="https://gomoonbeam.com"
-                src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-                description="Never write from scratch again. Go from idea to blog in minutes."
-              />
-              <ProductItem
-                title="Rogue"
-                href="https://userogue.com"
-                src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-                description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-              />
-            </div>
-          </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Skills" >
-            <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/hobby">Hobby</HoveredLink>
-              <HoveredLink href="/individual">Individual</HoveredLink>
-              <HoveredLink href="/team">Team</HoveredLink>
-              <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-            </div>
-          </MenuItem>
-        </Menu>
-      </div>
-    );
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      // Add background when scrolled
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+
+      // Get current scroll position
+      const scrollPosition = window.scrollY + 100;
+
+      // Check which section is in view
+      const sections = ['about', 'skills', 'projects'];
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop && 
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 80, // Offset for navbar height
+        behavior: 'smooth'
+      });
+      setActiveSection(sectionId);
+    }
+  };
 
   return (
-    <div className="relative w-full flex items-center justify-center">
-      <Navbar className="top-2" />
-      {/* <p className="text-black dark:text-white">
-        The Navbar will show on top of the page
-      </p> */}
+    <nav className={cn(
+      "fixed top-0 w-full z-50 transition-all duration-300 px-6 py-4",
+      scrolled ? "bg-white/90 dark:bg-slate-900/90 shadow-sm backdrop-blur-sm" : "bg-transparent"
+    )}>
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
+        <div className="flex items-center">
+          <Link href="/" className="text-xl font-bold text-slate-900 dark:text-white">
+            Parth Mandawaria
+          </Link>
+        </div>
+        
+        <div className="hidden md:flex space-x-8">
+          {[
+            { id: 'about', label: 'About Me' },
+            { id: 'skills', label: 'Skills' },
+            { id: 'projects', label: 'Projects' }
+          ].map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={cn(
+                "text-base font-medium transition-colors relative",
+                activeSection === id 
+                  ? "text-blue-600 dark:text-blue-400" 
+                  : "text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
+              )}
+            >
+              {label}
+              {activeSection === id && (
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 -mb-1" />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <MobileMenu />
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+function MobileMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 80,
+        behavior: 'smooth'
+      });
+      setIsOpen(false);
+    }
+  };
+
+  return (
+    <div>
+      <button 
+        onClick={() => setIsOpen(!isOpen)} 
+        className="text-slate-700 dark:text-slate-300 focus:outline-none"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          className="h-6 w-6" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor"
+        >
+          {isOpen ? (
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M6 18L18 6M6 6l12 12" 
+            />
+          ) : (
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M4 6h16M4 12h16M4 18h16" 
+            />
+          )}
+        </svg>
+      </button>
+
+      {isOpen && (
+        <div className="absolute top-16 right-4 bg-white dark:bg-slate-900 shadow-lg rounded-md py-2 px-4 min-w-[200px]">
+          {[
+            { id: 'about', label: 'About Me' },
+            { id: 'skills', label: 'Skills' },
+            { id: 'projects', label: 'Projects' }
+          ].map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className="block w-full text-left py-2 px-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded"
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
