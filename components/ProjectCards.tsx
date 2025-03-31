@@ -2,7 +2,7 @@ import TiltedCard from "./ui/TiltedCard";
 
 export function ProjectCard1() {
   // Define links
-  const githubLink = "https://github.com/parthhcodess/lightening.new";
+  // const githubLink = "https://github.com/parthhcodess/lightening.new";
   const websiteLink = "https://github.com/parthhcodess/lightening.new";
   
   // Handle card click - open the website link by default

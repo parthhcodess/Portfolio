@@ -51,12 +51,6 @@ export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
     fallbackHex,
     minContrastRatio,
     size: 42,
-    aProps: {
-      href: undefined,
-      target: undefined,
-      rel: undefined,
-      onClick: (e: any) => e.preventDefault(),
-    },
   });
 };
 
@@ -64,14 +58,19 @@ export type DynamicCloudProps = {
   iconSlugs: string[];
 };
 
-type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
+// Define a proper type for IconData
+type IconData = {
+  simpleIcons: Record<string, SimpleIcon>;
+};
 
 export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
   const [data, setData] = useState<IconData | null>(null);
   const { theme } = useTheme();
 
   useEffect(() => {
-    fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
+    fetchSimpleIcons({ slugs: iconSlugs }).then((result) => 
+      setData(result as IconData)
+    );
   }, [iconSlugs]);
 
   const renderedIcons = useMemo(() => {
