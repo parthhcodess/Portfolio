@@ -56,7 +56,7 @@ export default function Page() {
                 <span className="text-sm text-gray-300 font-medium">Feb 2025</span>
               </div>
               <ul className="text-sm sm:text-base space-y-2 text-gray-200">
-                <li>• Worked on the project called "Placementor" which helped students to prepare them for placements</li>
+                <li>• Worked on the project called Placementor which helped students to prepare them for placements</li>
                 <li>• It was a team project and my work was certainly to contribute in Frontend</li>
                 <li>• Won the title of Best Open Source Database AI Product</li>
               </ul>
