@@ -5,13 +5,13 @@ import { Intro, ResumeButton } from "@/components/Intro";
 import { SocialDock } from "@/components/SocialDock";
 import { Skills } from "@/components/Skills";
 import { ProjectCard1, ProjectCard2, ProjectCard3, ProjectCard4 } from "@/components/ProjectCards";
+import { motion } from "framer-motion";
 
 export default function Page() {
   return ( 
-    // Increase top padding specifically for mobile
-    <div className="pt-16 sm:pt-10 md:pt-20">
-      {/* Add more top padding to this section on mobile */}
-      <div className="flex justify-center items-center px-4 sm:px-6 md:px-8 py-12 sm:py-12 md:py-16 mt-8 sm:mt-0">
+    <div>
+      {/* Hero Section */}
+      <div className="min-h-screen flex justify-center items-center px-4 sm:px-6 md:px-8">
         <div className="container max-w-6xl flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-8">
           <div className="text-center md:text-left w-full md:w-1/2 flex flex-col items-center md:items-start">
             <div className="text-base sm:text-lg md:text-xl font-light text-indigo-300">HEYAA FOLKS, I AM</div>
@@ -28,11 +28,8 @@ export default function Page() {
           </div>
         </div>
       </div>
-
-      {/* Spacer - responsive */}
-      <div className="py-6 sm:py-8 md:py-10"></div>
       
-      {/* About Me Section - responsive */}
+      {/* About Me Section */}
       <div id="about" className="flex justify-center items-center">
         <div className="container max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-2xl sm:text-3xl font-extrabold text-white text-center mb-4 sm:mb-6">About Me</div>
@@ -45,6 +42,34 @@ export default function Page() {
       {/* Spacer - responsive */}
       <div className="py-16 sm:py-24 md:py-36"></div>
 
+      {/* Experience Section */}
+      <div id="experience" className="flex justify-center items-center">
+        <div className="container max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+          <div className="text-2xl sm:text-3xl font-extrabold text-white text-center mb-4 sm:mb-6">Experience</div>
+          <div className="space-y-6">
+            {/* Experience Item 1 */}
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-white">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-3">
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-blue-400">Hackathon Win</h3>
+                  <p className="text-base sm:text-lg font-medium">Hackhound 3.0</p>
+                </div>
+                <span className="text-sm text-gray-300 font-medium">Feb 2025</span>
+              </div>
+              <ul className="text-sm sm:text-base space-y-2 text-gray-200">
+                <li>• Worked on the project called "Placementor" which helped students to prepare them for placements</li>
+                <li>• It was a team project and my work was certainly to contribute in Frontend</li>
+                <li>• Won the title of Best Open Source Database AI Product</li>
+              </ul>
+            </div>
+
+            {/* Add more experience items as needed */}
+          </div>
+        </div>
+      </div>
+      
+      <div className="py-16 sm:py-24 md:py-36"></div>
+
       {/* Skills Section - responsive */}
       <div id="skills" className="flex justify-center items-center">
         <div className="container max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
@@ -52,8 +77,6 @@ export default function Page() {
           <Skills />
         </div>
       </div>
-      
-      {/* Spacer - responsive */}
       <div className="py-16 sm:py-24 md:py-36"></div>
 
       {/* Projects Section - responsive */}

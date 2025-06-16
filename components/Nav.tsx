@@ -21,7 +21,7 @@ export function Nav() {
       const scrollPosition = window.scrollY + 100;
 
       // Check which section is in view
-      const sections = ['about', 'skills', 'projects'];
+      const sections = ['about', 'experience', 'skills', 'projects'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -67,6 +67,7 @@ export function Nav() {
         <div className="hidden md:flex space-x-8">
           {[
             { id: 'about', label: 'About Me' },
+            { id: 'experience', label: 'Experience' },
             { id: 'skills', label: 'Skills' },
             { id: 'projects', label: 'Projects' }
           ].map(({ id, label }) => (
@@ -146,6 +147,7 @@ function MobileMenu() {
         <div className="absolute top-16 right-4 bg-white dark:bg-slate-900 shadow-lg rounded-md py-2 px-4 min-w-[200px]">
           {[
             { id: 'about', label: 'About Me' },
+            { id: 'experience', label: 'Experience' },
             { id: 'skills', label: 'Skills' },
             { id: 'projects', label: 'Projects' }
           ].map(({ id, label }) => (
