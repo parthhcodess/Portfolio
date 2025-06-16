@@ -1,17 +1,7 @@
 "use client";
 import React from "react";
-import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
-
-const transition = {
-  type: "spring",
-  mass: 0.5,
-  damping: 11.5,
-  stiffness: 100,
-  restDelta: 0.001,
-  restSpeed: 0.001,
-};
 
 export const MenuItem = ({
   setActive,
@@ -26,35 +16,27 @@ export const MenuItem = ({
 }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative ">
-      <motion.p
-        transition={{ duration: 0.3 }}
+      <p
         className="cursor-pointer text-white hover:opacity-[0.9] dark:text-white"
       >
         {item}
-      </motion.p>
+      </p>
       {active !== null && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={transition}
-        >
+        <div>
           {active === item && (
             <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
-              <motion.div
-                transition={transition}
-                layoutId="active" // layoutId ensures smooth animation
+              <div
                 className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
               >
-                <motion.div
-                  layout // layout ensures smooth animation
+                <div
                   className="w-max h-full p-4"
                 >
                   {children}
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             </div>
           )}
-        </motion.div>
+        </div>
       )}
     </div>
   );
