@@ -4,7 +4,7 @@ import { SkillCloud } from "@/components/SkillsCloud";
 import { Intro, ResumeButton } from "@/components/Intro";
 import { SocialDock } from "@/components/SocialDock";
 import { Skills } from "@/components/Skills";
-import { ProjectCard1, ProjectCard2, ProjectCard3 } from "@/components/ProjectCards";
+import { ProjectCard1, ProjectCard2, ProjectCard3, ProjectCard4 } from "@/components/ProjectCards";
 
 export default function Page() {
   return ( 
@@ -62,6 +62,7 @@ export default function Page() {
           <div className="text-2xl sm:text-3xl font-extrabold text-white text-center mb-4 sm:mb-6">Projects</div>
             {/* Add your project details here */}
             <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8"> 
+              <ProjectCard4 />
               <ProjectCard1 />
               <ProjectCard3 />
               <ProjectCard2 />
